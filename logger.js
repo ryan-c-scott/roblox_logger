@@ -36,7 +36,7 @@ var server = http.createServer(function(request, response) {
         var clientMessages = msg.messages;
         for(var j = 0; j < clientMessages.length; ++j) {
           var clientMsg = clientMessages[j];
-          console.log("CLIENT: %s %s, %s, %s(%s) [%s].[%s] %s",
+          console.log("CLIENT: %s %s, %s, %s, %s, %s, %s, %s",
                       clientMsg[0],
                       data.game, data.place, data.job, msg.player,
                       clientMsg[1], clientMsg[2], clientMsg[3]);
@@ -44,12 +44,14 @@ var server = http.createServer(function(request, response) {
       }
       else {
         // Server
-        console.log("SERVER: %s %s, %s, %s, [%s].[%s] %s",
+        console.log("SERVER: %s %s, %s, %s, %s, %s, %s, %s",
                     msg[0],
-                    data.game, data.place, data.job,
+                    data.game, data.place, data.job, undefined,
                     msg[1], msg[2], msg[3]);
       }
     }
   });
   
 }).listen(9900);
+
+console.log("Listing on port 9900");
