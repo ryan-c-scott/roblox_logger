@@ -36,16 +36,18 @@ var server = http.createServer(function(request, response) {
         var clientMessages = msg.messages;
         for(var j = 0; j < clientMessages.length; ++j) {
           var clientMsg = clientMessages[j];
-          console.log("CLIENT: %s, %s, %s(%s) [%s].[%s] %s",
+          console.log("CLIENT: %s %s, %s, %s(%s) [%s].[%s] %s",
+                      clientMsg[0],
                       data.game, data.place, data.job, msg.player,
-                      clientMsg[0], clientMsg[1], clientMsg[2]);
+                      clientMsg[1], clientMsg[2], clientMsg[3]);
         }
       }
       else {
         // Server
-        console.log("SERVER: %s, %s, %s, [%s].[%s] %s",
+        console.log("SERVER: %s %s, %s, %s, [%s].[%s] %s",
+                    msg[0],
                     data.game, data.place, data.job,
-                    msg[0], msg[1], msg[2]);
+                    msg[1], msg[2], msg[3]);
       }
     }
   });
